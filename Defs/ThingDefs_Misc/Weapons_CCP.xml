@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BaseGun" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+			<Beauty>-6</Beauty>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+		<smeltable>true</smeltable>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef Name="BaseMeleeWeapon" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+			<Beauty>-6</Beauty>
+		</statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+		<smeltable>true</smeltable>
+		<weaponTags>
+      <li>Melee</li>
+    </weaponTags>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+  </ThingDef>
+
+
+
+  <ThingDef Name="BaseMeleeWeapon_Sharp" ParentName="BaseMeleeWeapon" Abstract="True">
+    <recipeMaker>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>Silver</li>
+        <li>Gold</li>
+        <li>WoodLog</li>
+      </exceptedThingDefs>
+    </defaultIngredientFilter>
+    </recipeMaker>
+  </ThingDef>
+
+	<!-- ===================== KnockOutRifle ========================= -->
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_KnockOut</defName>
+		<label>charged knock-out shot</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>KnockoutBullet</damageDef>
+			<damageAmountBase>2</damageAmountBase>
+			<speed>90</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>Gun_KnockOutRifle</defName>
+		<label>knock-out rifle</label>
+		<description>A low damage weapon for knocking out people and larger animals. Potentially deadly, almost always lethal for smaller lifeforms.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/KnockOutRifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>InteractChargeRifle</soundInteract>
+		<statBases>
+			<WorkToMake>65000</WorkToMake>
+			<Mass>4</Mass>
+			<AccuracyTouch>0.95</AccuracyTouch>
+			<AccuracyShort>0.85</AccuracyShort>
+			<AccuracyMedium>0.63</AccuracyMedium>
+			<AccuracyLong>0.49</AccuracyLong>
+			<RangedWeapon_Cooldown>1.55</RangedWeapon_Cooldown>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+		</recipeMaker>
+		<costList>
+			<Steel>35</Steel>
+			<Plasteel>65</Plasteel>
+			<Gold>15</Gold>
+			<Component>7</Component>
+		</costList>
+		<generateCommonality>0.05</generateCommonality>
+		<techLevel>Spacer</techLevel>
+		<weaponTags>
+			<li>AdvancedGun</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<projectileDef>Bullet_KnockOut</projectileDef>
+				<warmupTime>0.5</warmupTime>
+				<range>26</range>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<burstShotCount>3</burstShotCount>
+				<soundCast>ShotChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>5</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+	
+	<!-- ===================== Knock-Out Dart Gun ========================= -->
+
+		<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_KnockOutDart</defName>
+		<label>charged knock-out shot</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charge_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>KnockoutDart</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>Gun_KnockOutGun</defName>
+		<label>knock-out pistol</label>
+		<description>A very low damage weapon for knocking out smaller animals. Potentially lethal.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/KnockOutGun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>InteractChargeRifle</soundInteract>
+		<statBases>
+			<WorkToMake>45000</WorkToMake>
+			<Mass>3</Mass>
+			<AccuracyTouch>0.90</AccuracyTouch>
+			<AccuracyShort>0.80</AccuracyShort>
+			<AccuracyMedium>0.55</AccuracyMedium>
+			<AccuracyLong>0.45</AccuracyLong>
+			<RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+		</recipeMaker>
+		<costList>
+			<Steel>25</Steel>
+			<Plasteel>50</Plasteel>
+			<Gold>10</Gold>
+			<Component>5</Component>
+		</costList>
+		<generateCommonality>0.03</generateCommonality>
+		<techLevel>Spacer</techLevel>
+		<weaponTags>
+			<li>AdvancedGun</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<projectileDef>Bullet_KnockOutDart</projectileDef>
+				<warmupTime>0.4</warmupTime>
+				<range>22</range>
+				<soundCast>ShotChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>5</muzzleFlashScale>
+			</li>
+		</verbs>
+	</ThingDef>
+  <!-- ===================== HyperCharge Pistol ========================= -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HyperChargePistol</defName>
+    <label>hypercharge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Gun_HyperChargePistol</defName>
+    <label>hypercharge pistol</label>
+    <description>Hypercharged energized projectile weapon.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/HyperChargePistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>135000</WorkToMake>
+      <MarketValue>1700</MarketValue>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.78</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>0.58</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>135</Steel>
+      <Plasteel>40</Plasteel>
+      <Component>6</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>AdvancedGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_HyperChargePistol</projectileDef>
+        <warmupTime>0.35</warmupTime>
+        <range>25</range>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>ShotChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  
+  <!-- ===================== HyperCharge Carbine ========================= -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HyperChargeCarbine</defName>
+    <label>hypercharge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Gun_HyperChargeCarbine</defName>
+    <label>hypercharge carbine</label>
+    <description>Hypercharged energized projectile weapon.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/HyperChargeCarbine</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>150000</WorkToMake>
+      <MarketValue>1900</MarketValue>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
+      <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>50</Plasteel>
+      <Component>7</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>AdvancedGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_HyperChargeCarbine</projectileDef>
+        <warmupTime>0.4</warmupTime>
+        <range>22</range>
+        <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+        <burstShotCount>5</burstShotCount>
+        <soundCast>ShotChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+    <!-- ===================== HyperCharge Rifle ========================= -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HyperChargeRifle</defName>
+    <label>hypercharge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>24</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Gun_HyperChargeRifle</defName>
+    <label>hypercharge rifle</label>
+    <description>Hypercharged energized projectile weapon.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/HyperChargeRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>175000</WorkToMake>
+      <MarketValue>2100</MarketValue>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.89</AccuracyShort>
+      <AccuracyMedium>0.92</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>0.60</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>180</Steel>
+      <Plasteel>65</Plasteel>
+      <Component>8</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>AdvancedGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_HyperChargeRifle</projectileDef>
+        <warmupTime>0.75</warmupTime>
+        <range>37</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>ShotChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>11</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+    <!-- ===================== HyperCharge SniperRifle ========================= -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HyperChargeSniperRifle</defName>
+    <label>heavy hypercharge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/ChargeLanceShot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>55</damageAmountBase>
+      <speed>115</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>Gun_HyperChargeSniperRifle</defName>
+    <label>hypercharge sniper rifle</label>
+    <description>Hypercharged energized projectile weapon.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/HyperChargeSniperRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>200000</WorkToMake>
+      <MarketValue>2500</MarketValue>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.89</AccuracyMedium>
+      <AccuracyLong>0.95</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>220</Steel>
+      <Plasteel>80</Plasteel>
+      <Component>10</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>AdvancedGun</li>
+      <li>SniperRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_HyperChargeSniperRifle</projectileDef>
+        <warmupTime>3</warmupTime>
+        <range>52</range>
+        <soundCast>ShotChargeRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>11</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+      <!-- ===================== HyperSliceSword ========================= -->
+
+  	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_HyperSliceSword</defName>
+    <label>hyperslice sword</label>
+    <description>A reimagined sword based on ancient blades, but improved by using high-tech alloys for lighter, but much sharper weapons.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/HyperSliceSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>165</costStuffCount>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>1.1</Mass>
+      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.8</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<techLevel>Spacer</techLevel>
+  </ThingDef>
+  
+</ThingDefs>
