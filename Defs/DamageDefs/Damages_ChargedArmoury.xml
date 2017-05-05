@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DamageDef ParentName="LocalInjuryBase">
+    <defName>KnockoutBullet</defName>
+    <label>knock-out bullet</label>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has died from a knock-out attack.</deathMessage>
+    <hediff>KnockOut</hediff>
+    <additionalHediffs>
+      <li>
+        <hediff>KnockOutCompound</hediff>
+        <severityPerDamageDealt>0.25</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Blunt</armorCategory>
+  </DamageDef>
+  
+  
+    <DamageDef ParentName="LocalInjuryBase">
+    <defName>KnockoutDart</defName>
+    <label>knock-out dart</label>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has died from a knock-out attack.</deathMessage>
+    <hediff>KnockOut</hediff>
+    <additionalHediffs>
+      <li>
+        <hediff>KnockOutCompound</hediff>
+        <severityPerDamageDealt>0.12</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
+    <impactSoundType>Bullet</impactSoundType>
+    <armorCategory>Blunt</armorCategory>
+  </DamageDef>
+  
+  
+</Defs>

@@ -509,6 +509,14 @@
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
+	 <costList>
+      <Component>4</Component>
+    </costList>
+	<recipeMaker>
+		<recipeUsers>
+			<li>ElectricSmithy</li>
+		</recipeUsers>
+	</recipeMaker>
     <verbs>
       <li>
         <verbClass>Verb_MeleeAttack</verbClass>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HediffDefs>
+	
+	<HediffDef ParentName="InjuryBase">
+		<defName>KnockOut</defName>
+		<label>knocked out</label>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+    </comps>
+    <injuryProps>
+		<painPerSeverity>0.01</painPerSeverity>
+		<canMerge>false</canMerge>
+		<destroyedLabel>Destroyed</destroyedLabel>
+	</injuryProps>
+	</HediffDef>
+
+
+</HediffDefs>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+ <HediffDef ParentName="InfectionBase">
+    <defName>KnockOutCompound</defName>
+    <label>knock-out compound</label>
+    <makesSickThought>true</makesSickThought>
+    <lethalSeverity>2</lethalSeverity>
+    <tendable>true</tendable>
+    <comps>
+	    <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>5000</min>
+          <max>15000</max>
+        </disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <tendDuration>2000</tendDuration>
+        <severityPerDayTended>-0.75</severityPerDayTended>
+      </li>
+    </comps>
+    <stages>
+	   <li>
+	    <label>minor</label>
+		<painOffset>0.1</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.65</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.45</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.33</minSeverity>
+        <label>major</label>
+		<painOffset>0.2</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.75</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.55</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.78</minSeverity>
+        <label>extreme</label>
+        <lifeThreatening>true</lifeThreatening>
+        <painOffset>0.3</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.85</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.75</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+</Defs>
