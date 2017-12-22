@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <DamageDef Name="LocalInjuryBase" Abstract="True">
+    <workerClass>DamageWorker_AddInjury</workerClass>
+  </DamageDef>
+  
     <DamageDef ParentName="LocalInjuryBase">
     <defName>KnockoutBullet</defName>
     <label>knock-out bullet</label>
@@ -10,7 +14,7 @@
     <additionalHediffs>
       <li>
         <hediff>KnockOutCompound</hediff>
-        <severityPerDamageDealt>0.25</severityPerDamageDealt>
+        <severityPerDamageDealt>0.15</severityPerDamageDealt>
       </li>
     </additionalHediffs>
     <impactSoundType>Bullet</impactSoundType>
@@ -27,7 +31,7 @@
     <additionalHediffs>
       <li>
         <hediff>KnockOutCompound</hediff>
-        <severityPerDamageDealt>0.12</severityPerDamageDealt>
+        <severityPerDamageDealt>0.08</severityPerDamageDealt>
       </li>
     </additionalHediffs>
     <impactSoundType>Bullet</impactSoundType>

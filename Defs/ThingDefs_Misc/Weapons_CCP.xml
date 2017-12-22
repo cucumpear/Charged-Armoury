@@ -51,7 +51,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-
   <ThingDef Name="BaseGun" Abstract="True" ParentName="BaseWeapon">
 		<techLevel>Industrial</techLevel>
 		<smeltable>true</smeltable>
@@ -98,7 +97,7 @@
       <li>Gun</li>
     </weaponTags>
   </ThingDef>
-
+  
   <ThingDef Name="BaseBullet" Abstract="True">
     <category>Projectile</category>
     <tickerType>Normal</tickerType>
